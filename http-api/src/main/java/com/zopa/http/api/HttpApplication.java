@@ -1,7 +1,6 @@
 package com.zopa.http.api;
 
 import ratpack.server.RatpackServer;
-import ratpack.server.RatpackServerSpec;
 
 public class HttpApplication {
 
@@ -10,13 +9,11 @@ public class HttpApplication {
     }
 
     private static void startServer() throws Exception {
-        RatpackServer.start(HttpApplication::setHandlers);
-    }
+        RatpackServer.start(server -> server.handlers(chain -> chain
 
-    private static RatpackServerSpec setHandlers(RatpackServerSpec server) {
-        return server.handlers(chain -> chain
-                .get(ctx -> ctx.render("Hello World!"))
-                .get(":name", ctx -> ctx.render("Hello " + ctx.getPathTokens().get("name") + "!")));
+                .get(ctx -> ctx.render("Welcome to Zopa Loan Calculator!"))
+
+        ));
     }
 
 }

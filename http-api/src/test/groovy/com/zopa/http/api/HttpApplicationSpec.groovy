@@ -1,20 +1,20 @@
 package com.zopa.http.api
 
+import ratpack.test.MainClassApplicationUnderTest
+import spock.lang.Shared
 import spock.lang.Specification
 
 class HttpApplicationSpec extends Specification {
 
-    def 'Calling the entry point'() {
+    @Shared
+    MainClassApplicationUnderTest appUnderTest = new MainClassApplicationUnderTest(HttpApplication.class)
 
-        setup: 'Re-route standard out'
-        def buf = new ByteArrayOutputStream(1024)
-        System.out = new PrintStream(buf)
+    def 'Calling server at root path'() {
+        when: 'Performing a GET request to /'
+        def responseMessage = appUnderTest.getHttpClient().getText("/")
 
-        when: 'The entrypoint is executed'
-        HttpApplication.main('gradlephant')
-
-        then: 'The correct greeting is output'
-        buf.toString() == "Hello, Gradlephant\n".denormalize()
+        then: 'The correct message is replied'
+        "Welcome to Zopa Loan Calculator!" == responseMessage
     }
 
 }
