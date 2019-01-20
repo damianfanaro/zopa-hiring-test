@@ -1,0 +1,5 @@
+rootProject.name = 'zopa-hiring-test'
+
+include 'component-test'
+include 'http-api'
+include 'loan-calculator'
