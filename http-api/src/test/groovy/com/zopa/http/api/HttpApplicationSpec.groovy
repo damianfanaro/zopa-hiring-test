@@ -1,8 +1,8 @@
-package com.zopa.greeter
+package com.zopa.http.api
 
 import spock.lang.Specification
 
-class GreeterSpec extends Specification {
+class HttpApplicationSpec extends Specification {
 
     def 'Calling the entry point'() {
 
@@ -11,7 +11,7 @@ class GreeterSpec extends Specification {
         System.out = new PrintStream(buf)
 
         when: 'The entrypoint is executed'
-        Greeter.main('gradlephant')
+        HttpApplication.main('gradlephant')
 
         then: 'The correct greeting is output'
         buf.toString() == "Hello, Gradlephant\n".denormalize()

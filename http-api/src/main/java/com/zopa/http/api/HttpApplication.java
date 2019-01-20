@@ -1,8 +1,8 @@
-package com.zopa.greeter;
+package com.zopa.http.api;
 
 import com.zopa.GreetingFormatter;
 
-public class Greeter {
+public class HttpApplication {
 	
     public static void main(String[] args) {
         final String output = GreetingFormatter.greeting(args[0]);
