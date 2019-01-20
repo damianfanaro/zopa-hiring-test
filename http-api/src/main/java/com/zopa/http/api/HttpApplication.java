@@ -12,6 +12,7 @@ public class HttpApplication {
         RatpackServer.start(server -> server.handlers(chain -> chain
 
                 .get(ctx -> ctx.render("Welcome to Zopa Loan Calculator!"))
+                .get("calculateLoan", new LoanCalculatorHandler())
 
         ));
     }

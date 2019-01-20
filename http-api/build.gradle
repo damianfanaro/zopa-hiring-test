@@ -4,20 +4,16 @@ buildscript {
     }
 }
 
-
 plugins {
     id 'java'
     id 'groovy'
     id 'application'
 }
 
-
 apply plugin: "io.ratpack.ratpack-java"
 apply plugin: "idea"
 
-
 mainClassName = 'com.zopa.http.api.HttpApplication'
-
 
 dependencies {
     runtime 'org.slf4j:slf4j-simple:1.7.25'
