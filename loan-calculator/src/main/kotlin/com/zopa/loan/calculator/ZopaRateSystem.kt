@@ -3,9 +3,9 @@ package com.zopa.loan.calculator
 import java.util.*
 import java.util.function.Predicate
 
-internal class ZopaRateSystem(private val lenderDataProvider: LenderDataProvider,
-                              private val compoundInterestCalculator: CompoundInterestCalculator,
-                              private val loanValidator: Predicate<Long>) {
+class ZopaRateSystem(private val lenderDataProvider: LenderDataProvider,
+                     private val compoundInterestCalculator: CompoundInterestCalculator,
+                     private val loanValidator: Predicate<Long>) {
 
     fun quote(rateCalculatorStrategy: RateCalculatorStrategy, timePeriod: Int, requestedLoan: Long): Optional<Quotation> {
         if (loanValidator.test(requestedLoan)) {
