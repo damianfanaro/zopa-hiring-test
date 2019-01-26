@@ -10,7 +10,7 @@ buildScan {
 
 allprojects {
     repositories {
-        jcenter() 
+        jcenter()
     }
 }
 

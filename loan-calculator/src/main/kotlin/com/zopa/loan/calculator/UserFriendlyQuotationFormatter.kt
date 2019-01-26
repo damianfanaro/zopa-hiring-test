@@ -2,10 +2,10 @@ package com.zopa.loan.calculator
 
 import java.text.DecimalFormat
 
-class InterfaceFriendlyQuotationFormatter(private val currency: Currency) : QuotationFormatter<ProxiedQuotation> {
+class UserFriendlyQuotationFormatter(private val currency: Currency) : QuotationFormatter<EnrichedFormatQuotation> {
 
-    override fun format(quotation: Quotation): ProxiedQuotation {
-        return ProxiedQuotation(currency, quotation)
+    override fun format(quotation: Quotation): EnrichedFormatQuotation {
+        return EnrichedFormatQuotation(currency, quotation)
     }
 
 }
@@ -18,8 +18,7 @@ enum class Currency(val symbol: String) {
 
 }
 
-
-class ProxiedQuotation(private val currency: Currency, private val quotation: Quotation) {
+class EnrichedFormatQuotation(private val currency: Currency, private val quotation: Quotation) {
 
     val requestedAmount: String
         get() = currency.symbol + quotation.requestedLoan
