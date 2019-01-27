@@ -5,11 +5,9 @@ import java.util.function.Predicate
 class LoanMultiplicityValidator(private val loanMultiplicity: Long) : Predicate<Long> {
 
     override fun test(requestedLoan: Long): Boolean {
-        return isRequestedLoanValidMultiple(requestedLoan)
+        return requestedLoan isMultipleOf loanMultiplicity
     }
 
-    private fun isRequestedLoanValidMultiple(requestLoan: Long): Boolean {
-        return requestLoan % loanMultiplicity == 0L
-    }
+    private infix fun Long.isMultipleOf(loanMultiplicity: Long) = this % loanMultiplicity == 0L
 
 }

@@ -9,10 +9,6 @@ class LoanRangeValidator(private val minimumLoanAllowed: Long, private val maxim
     }
 
     override fun test(requestedLoan: Long): Boolean {
-        return isRequestedLoanWithinBounds(requestedLoan)
-    }
-
-    private fun isRequestedLoanWithinBounds(requestedLoan: Long): Boolean {
         return requestedLoan in minimumLoanAllowed..maximumLoanAllowed
     }
 

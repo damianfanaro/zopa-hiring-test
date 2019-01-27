@@ -8,7 +8,6 @@ class MonthlyCompoundInterestCalculator : CompoundInterestCalculator {
         val simpleCompoundInterest = monthlyRate + monthlyRate / rateOverTimePeriod
         val monthlyRepayment = simpleCompoundInterest * requestedLoan
         val totalRepayment = monthlyRepayment * timePeriod
-
         return Quotation(requestedLoan, rate, monthlyRepayment, totalRepayment)
     }
 
