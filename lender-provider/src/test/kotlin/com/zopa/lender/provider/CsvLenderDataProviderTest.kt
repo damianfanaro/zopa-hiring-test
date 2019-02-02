@@ -14,7 +14,7 @@ internal class CsvLenderDataProviderTest {
         val expectedLendersData = buildExpectedLendersData()
         val lenderDataProvider = CsvLenderDataProvider(fileName)
 
-        val lendersData = lenderDataProvider.getLenderData()
+        val lendersData = lenderDataProvider.getLenders()
 
         assertTrue(lendersData.containsAll(expectedLendersData))
     }
@@ -25,7 +25,7 @@ internal class CsvLenderDataProviderTest {
         val expectedLendersData = buildExpectedLendersData()
         val lenderDataProvider = CsvLenderDataProvider(fileName)
 
-        val lendersData = lenderDataProvider.getLenderData()
+        val lendersData = lenderDataProvider.getLenders()
 
         assertTrue(lendersData.containsAll(expectedLendersData))
     }
@@ -34,7 +34,7 @@ internal class CsvLenderDataProviderTest {
     fun given_nonExistingFileName_when_gettingLenderData_then_anEmptyListIsReturned() {
         val lenderDataProvider = CsvLenderDataProvider("non-existing-file-name")
 
-        val lendersData = lenderDataProvider.getLenderData()
+        val lendersData = lenderDataProvider.getLenders()
 
         assertTrue(lendersData.isEmpty())
     }

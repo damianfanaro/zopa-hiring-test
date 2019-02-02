@@ -4,6 +4,8 @@ plugins {
 
 dependencies {
     compile 'org.codehaus.groovy:groovy:2.5.5'
+    compile 'io.ratpack:ratpack-test:1.6.0'
+    compile project(':http-api')
     testCompile 'org.spockframework:spock-core:1.2-groovy-2.5', {
         exclude module: 'groovy-all'
     }

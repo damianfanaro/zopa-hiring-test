@@ -12,11 +12,15 @@ class CsvLenderDataProvider(private val fileName: String) : LenderDataProvider {
 
     private var lendersData: MutableList<LenderData>? = null
 
-    override fun getLenderData(): List<LenderData> {
+    override fun getLenders(): List<LenderData> {
         if (lendersDataNotReadYet()) {
             readLendersData()
         }
         return unmodifiableList(lendersData!!)
+    }
+
+    override fun addLender(lenderData: LenderData) {
+        lendersData?.add(lenderData)
     }
 
     private fun lendersDataNotReadYet(): Boolean {
@@ -25,7 +29,7 @@ class CsvLenderDataProvider(private val fileName: String) : LenderDataProvider {
 
     private fun readLendersData() {
         lendersData = ArrayList()
-        val path = Paths.get(fileName)
+        val path = Paths.get(this.javaClass.classLoader.getResource(fileName).toURI())
 
         try {
             Files.lines(path).forEach { mapToLenderData(it) }

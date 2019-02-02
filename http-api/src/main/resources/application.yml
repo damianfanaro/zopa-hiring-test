@@ -1,0 +1,8 @@
+server:
+  port: 4455
+
+zopa:
+  timePeriod: 24
+  loanMultiplicity: 100
+  minimumLoanAllowed: 1000
+  maximumLoanAllowed: 15000

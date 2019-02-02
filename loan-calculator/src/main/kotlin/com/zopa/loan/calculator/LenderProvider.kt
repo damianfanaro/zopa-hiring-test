@@ -2,7 +2,9 @@ package com.zopa.loan.calculator
 
 interface LenderDataProvider {
 
-    fun getLenderData(): List<LenderData>
+    fun getLenders(): List<LenderData>
+
+    fun addLender(lenderData: LenderData)
 
 }
 

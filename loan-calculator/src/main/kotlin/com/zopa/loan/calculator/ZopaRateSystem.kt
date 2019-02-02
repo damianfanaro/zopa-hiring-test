@@ -9,7 +9,7 @@ class ZopaRateSystem(private val lenderDataProvider: LenderDataProvider,
 
     fun quote(rateCalculatorStrategy: RateCalculatorStrategy, timePeriod: Int, requestedLoan: Long): Optional<Quotation> {
         if (loanValidator.test(requestedLoan)) {
-            val lendersData = lenderDataProvider.getLenderData()
+            val lendersData = lenderDataProvider.getLenders()
             val calculatedRate = rateCalculatorStrategy.calculateRate(lendersData, requestedLoan)
             if (calculatedRate.isPresent) {
                 val quotation = compoundInterestCalculator.quote(calculatedRate.asDouble, timePeriod, requestedLoan)

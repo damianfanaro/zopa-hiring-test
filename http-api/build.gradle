@@ -13,12 +13,14 @@ plugins {
 apply plugin: "io.ratpack.ratpack-java"
 apply plugin: "idea"
 
-mainClassName = 'com.zopa.http.api.HttpApplication'
+mainClassName = 'com.zopa.http.api.ApplicationStarter'
 
 dependencies {
     runtime 'org.slf4j:slf4j-simple:1.7.25'
     compile 'org.codehaus.groovy:groovy:2.5.5'
     compile 'org.projectlombok:lombok:1.18.4'
+    compile 'com.google.inject:guice:4.2.2'
+    compile 'io.ratpack:ratpack-guice:1.6.0'
     compile project(':loan-calculator')
     compile project(':lender-provider')
     testCompile 'org.spockframework:spock-core:1.2-groovy-2.5', {
